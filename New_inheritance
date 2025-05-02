@@ -1,0 +1,66 @@
+import java.util.*;
+class Inheritance
+{
+   
+         
+    public static void main(String ar[])
+    {
+        Programmer e=new Programmer();
+        e.accept();
+        e.display();
+        e.paySlip();
+       
+        TeamLead t=new TeamLead();
+        t.accept();
+        t.display();
+        t.paySlip();
+         
+    }
+   
+    
+}
+
+class Employee
+{
+    Scanner sc=new Scanner(System.in);
+    int eid;
+    String ename;
+    double bp,da,hra,pf,scf,gs,ns;
+    void accept()
+    {
+     System.out.printf("Enter Employee ID ");
+     eid=sc.nextInt();
+     System.out.printf("Enter Employee Name ");
+     ename=sc.next();
+      System.out.printf("Enter Basic Pay of Employee:");
+      bp=sc.nextDouble();
+    }
+    void display()
+    {
+       System.out.println("Employee ID is: "+eid); 
+       System.out.println("Employee Name is: "+ename); 
+       System.out.printf("Basic Pay of Employee is:"+bp);
+    }
+    
+    void paySlip()
+    {
+        
+       da=0.97*bp;
+       hra=0.1*bp;
+       pf=0.12*bp;
+       scf=0.001*bp;
+       gs=da+hra+bp;
+       ns=gs-pf-scf;
+       System.out.println("\nGross Salary is:"+gs);
+        System.out.println("Net Salary is:"+ns);
+    }
+   
+}
+class Programmer extends Employee
+{
+    
+}
+class TeamLead extends Employee
+{
+    
+}
