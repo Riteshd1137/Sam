@@ -1,0 +1,32 @@
+// Book.java
+class Book {
+    String title;
+    String author;
+    double price;
+    int copiesSold;
+
+    // Constructor
+    Book(String title, String author, double price, int copiesSold) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+        this.copiesSold = copiesSold;
+    }
+
+    // Method to calculate total sales of this book
+    double getTotalSales() {
+        return price * copiesSold;
+    }
+
+    // Method to display book details and total sales
+    void displayBookDetails() {
+        System.out.println("Book Title: " + title);
+        System.out.println("Author: " + author);
+        System.out.println("Price: ₹" + price);
+        System.out.println("Copies Sold: " + copiesSold);
+        System.out.println("Total Sales: ₹" + getTotalSales());
+        System.out.println("---------------------------");
+    }
+}
+
+// Main class
