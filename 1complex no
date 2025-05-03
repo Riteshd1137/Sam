@@ -1,0 +1,47 @@
+// ComplexNumber.java
+class ComplexNumber {
+    double real;
+    double imag;
+
+    // Constructor
+    ComplexNumber(double real, double imag) {
+        this.real = real;
+        this.imag = imag;
+    }
+
+    // Method to add two complex numbers
+    ComplexNumber add(ComplexNumber c) {
+        return new ComplexNumber(this.real + c.real, this.imag + c.imag);
+    }
+
+    // Method to subtract two complex numbers
+    ComplexNumber subtract(ComplexNumber c) {
+        return new ComplexNumber(this.real - c.real, this.imag - c.imag);
+    }
+
+    // Method to multiply two complex numbers
+    ComplexNumber multiply(ComplexNumber c) {
+        double realPart = (this.real * c.real) - (this.imag * c.imag);
+        double imagPart = (this.real * c.imag) + (this.imag * c.real);
+        return new ComplexNumber(realPart, imagPart);
+    }
+
+    // Method to display the complex number
+    void display() {
+        if (imag >= 0)
+            System.out.println(real + " + " + imag + "i");
+        else
+            System.out.println(real + " - " + (-imag) + "i");
+    }
+}
+
+// Main class
+public class ComplexNumberTest {
+    public static void main(String[] args) {
+        ComplexNumber c1 = new ComplexNumber(4.0, 5.0);
+        ComplexNumber c2 = new ComplexNumber(2.0, -3.0);
+
+        System.out.print("First Complex Number: ");
+        c1.display();
+
+        System.out.print("Second Complex
