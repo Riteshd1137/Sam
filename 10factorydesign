@@ -1,0 +1,55 @@
+class PriorityThread extends Thread {
+    public void run() {
+        System.out.println(getName() + " is running with priority " + getPriority());
+        try {
+            for (int i = 1; i <= 3; i++) {
+                System.out.println(getName() + " - Count: " + i);
+                Thread.sleep(500); // Sleep to simulate work
+            }
+        } catch (InterruptedException e) {
+            System.out.println(getName() + " interrupted.");
+        }
+    }
+}
+
+public class ThreadPriorityDemo {
+    public static void main(String[] args) {
+        // Creating threads
+        PriorityThread t1 = new PriorityThread();
+        PriorityThread t2 = new PriorityThread();
+        PriorityThread t3 = new PriorityThread();
+
+        // Naming threads
+        t1.setName("Thread-A");
+        t2.setName("Thread-B");
+        t3.setName("Thread-C");
+
+        // Setting priorities
+        t1.setPriority(Thread.MIN_PRIORITY);   // 1
+        t2.setPriority(Thread.NORM_PRIORITY);  // 5 (default)
+        t3.setPriority(Thread.MAX_PRIORITY);   // 10
+
+        // Starting threads
+        t1.start();
+        t2.start();
+        t3.start();
+
+        // Checking alive status
+        System.out.println(t1.getName() + " isAlive: " + t1.isAlive());
+        System.out.println(t2.getName() + " isAlive: " + t2.isAlive());
+        System.out.println(t3.getName() + " isAlive: " + t3.isAlive());
+
+        // Wait for threads to finish
+        try {
+            t1.join();
+            t2.join();
+            t3.join();
+        } catch (InterruptedException e) {
+            System.out.println("Main thread interrupted.");
+        }
+
+        // Final alive status
+        System.out.println("All threads completed.");
+        System.out.println(t1.getName() + " isAlive: " + t1.isAlive());
+    }
+}
