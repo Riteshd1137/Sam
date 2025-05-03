@@ -1,0 +1,53 @@
+// Base class
+class Shape {
+    // This method will be overridden
+    void calculateArea() {
+        System.out.println("Area is not defined for generic shape.");
+    }
+}
+
+// Rectangle class
+class Rectangle extends Shape {
+    double length, width;
+
+    // Constructor
+    Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    // Overridden method
+    void calculateArea() {
+        double area = length * width;
+        System.out.println("Rectangle Area = " + area);
+    }
+}
+
+// Triangle class
+class Triangle extends Shape {
+    double base, height;
+
+    // Constructor
+    Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    // Overridden method
+    void calculateArea() {
+        double area = 0.5 * base * height;
+        System.out.println("Triangle Area = " + area);
+    }
+}
+
+// Main class
+public class AreaCalculator {
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle(10, 5);
+        Triangle triangle = new Triangle(8, 6);
+
+        System.out.println("Calculating Areas:");
+        rectangle.calculateArea();
+        triangle.calculateArea();
+    }
+}
