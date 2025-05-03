@@ -1,0 +1,97 @@
+// Interface
+interface Vehicle {
+    void start();
+    void stop();
+    void speedUp(int increment);
+    void displayStatus();
+}
+
+// Class for Car
+class Car implements Vehicle {
+    int speed;
+    boolean engineOn;
+
+    Car() {
+        speed = 0;
+        engineOn = false;
+    }
+
+    public void start() {
+        engineOn = true;
+        System.out.println("Car engine started.");
+    }
+
+    public void stop() {
+        engineOn = false;
+        speed = 0;
+        System.out.println("Car stopped.");
+    }
+
+    public void speedUp(int increment) {
+        if (engineOn) {
+            speed += increment;
+            System.out.println("Car accelerated by " + increment + " km/h.");
+        } else {
+            System.out.println("Start the car first!");
+        }
+    }
+
+    public void displayStatus() {
+        System.out.println("Car Status - Engine: " + (engineOn ? "On" : "Off") + ", Speed: " + speed + " km/h");
+        System.out.println("---------------------------");
+    }
+}
+
+// Class for Bike
+class Bike implements Vehicle {
+    int speed;
+    boolean engineOn;
+
+    Bike() {
+        speed = 0;
+        engineOn = false;
+    }
+
+    public void start() {
+        engineOn = true;
+        System.out.println("Bike engine started.");
+    }
+
+    public void stop() {
+        engineOn = false;
+        speed = 0;
+        System.out.println("Bike stopped.");
+    }
+
+    public void speedUp(int increment) {
+        if (engineOn) {
+            speed += increment;
+            System.out.println("Bike accelerated by " + increment + " km/h.");
+        } else {
+            System.out.println("Start the bike first!");
+        }
+    }
+
+    public void displayStatus() {
+        System.out.println("Bike Status - Engine: " + (engineOn ? "On" : "Off") + ", Speed: " + speed + " km/h");
+        System.out.println("---------------------------");
+    }
+}
+
+// Main class
+public class VehicleTest {
+    public static void main(String[] args) {
+        Vehicle myCar = new Car();
+        Vehicle myBike = new Bike();
+
+        myCar.start();
+        myCar.speedUp(30);
+        myCar.displayStatus();
+        myCar.stop();
+
+        myBike.start();
+        myBike.speedUp(20);
+        myBike.displayStatus();
+        myBike.stop();
+    }
+}
